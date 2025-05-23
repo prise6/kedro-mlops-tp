@@ -1,4 +1,5 @@
 import pandas as pd
+from ydata_profiling import ProfileReport
 
 
 def _is_true(x: pd.Series) -> pd.Series:
@@ -66,3 +67,8 @@ def create_model_input_table(
     )
     model_input_table = model_input_table.dropna()
     return model_input_table
+
+
+def create_profile(data: pd.DataFrame) -> pd.DataFrame:
+    profile = ProfileReport(data, title="YData Profiling Report")
+    return profile.html

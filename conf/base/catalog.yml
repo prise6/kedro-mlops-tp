@@ -69,6 +69,10 @@ model_input_table:
   type: pandas.ParquetDataset
   filepath: data/03_primary/model_input_table.parquet
 
+ydata_profile:
+  type: text.TextDataset
+  filepath: data/08_reporting/ydata_report.html
+
 regressor:
   type: pickle.PickleDataset
   filepath: data/06_models/regressor.pickle
