@@ -73,6 +73,11 @@ docstring-code-format = true
 [tool.ruff]
 line-length = 88
 show-fixes = true
+
+[tool.ruff.lint]
+# Disable fix for unused imports (`F401`).
+unfixable = ["F401"]
+ignore = ["E501"]  # Ruff format takes care of line-too-long
 select = [
     "F",   # Pyflakes
     "W",   # pycodestyle
@@ -82,6 +87,3 @@ select = [
     "PL",  # Pylint
     "T201", # Print Statement
 ]
-ignore = ["E501"]  # Ruff format takes care of line-too-long
-# Disable fix for unused imports (`F401`).
-unfixable = ["F401"]
