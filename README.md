@@ -19,6 +19,11 @@
 uvx kedro new --starter spaceflights-pandas --name kedro_mlops_t
 git init --initial-branch main
 uv sync -p python3.12
+ruff format
+ruff check
+mypy .
+python notebooks/reviews.py
+kedro run --pipeline inference
 ```
 
 ## Overview

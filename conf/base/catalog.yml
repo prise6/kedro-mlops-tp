@@ -45,7 +45,11 @@ companies:
 
 reviews:
   type: pandas.CSVDataset
-  filepath: data/01_raw/reviews.csv
+  filepath: data/01_raw/reviews_dev.csv
+
+new_reviews:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/reviews_prod.csv
 
 shuttles:
   type: pandas.ExcelDataset
@@ -68,6 +72,11 @@ model_input_table:
 regressor:
   type: pickle.PickleDataset
   filepath: data/06_models/regressor.pickle
+  versioned: true
+
+new_predictions:
+  type: pandas.CSVDataset
+  filepath: data/07_model_output/new_predictions.csv
   versioned: true
 
 shuttle_passenger_capacity_plot_exp:
