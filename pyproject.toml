@@ -77,3 +77,6 @@ select = [
     "PL",  # Pylint
     "T201", # Print Statement
 ]
+
+[tool.mypy]
+disable_error_code = ["import-untyped", "call-overload"]
