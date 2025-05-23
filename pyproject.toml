@@ -83,3 +83,5 @@ select = [
     "T201", # Print Statement
 ]
 ignore = ["E501"]  # Ruff format takes care of line-too-long
+# Disable fix for unused imports (`F401`).
+unfixable = ["F401"]

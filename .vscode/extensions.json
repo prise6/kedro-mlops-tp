@@ -1,0 +1,12 @@
+{
+    "recommendations": [
+        "ms-python.python",
+        "ms-python.debugpy",
+        "njpwerner.autodocstring",
+        "ms-python.vscode-pylance",
+        "charliermarsh.ruff",
+        "be5invis.toml",
+        "ms-python.mypy-type-checker",
+        "ms-toolsai.jupyter"
+    ]
+}

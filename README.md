@@ -18,7 +18,7 @@
 ```bash
 uvx kedro new --starter spaceflights-pandas --name kedro_mlops_t
 git init --initial-branch main
-git add 
+uv sync -p python3.12
 ```
 
 ## Overview

@@ -1,0 +1,27 @@
+{
+    "jupyter.notebookFileRoot": "${workspaceFolder}",
+    "editor.formatOnSave": true,
+    "python.terminal.activateEnvInCurrentTerminal": true,
+    "debug.onTaskErrors": "showErrors",
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/.cache": true,
+        "**/.coverage": true,
+        "**/.coverage.*": true,
+        "**/.hypothesis": true,
+        "**/.mypy_cache": true,
+        "**/.nox": true,
+        "**/.pytest_cache": true,
+        "**/.ruff_cache": true,
+        "**/.tox": true
+    },
+    "python.analysis.autoImportCompletions": false,
+    "python.envFile": "${workspaceFolder}/.env",
+    "python.analysis.fixAll": ["source.unusedImports"],  
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.codeActionsOnSave": {
+        "source.unusedImports": "never",
+        "source.organizeImports.ruff": "explicit",
+        "source.fixAll.ruff": "always",
+    }
+}
