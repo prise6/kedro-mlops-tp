@@ -25,5 +25,10 @@
         "source.unusedImports": "never",
         "source.organizeImports.ruff": "explicit",
         "source.fixAll.ruff": "always",
-    }
+    },
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
 }
