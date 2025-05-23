@@ -1,6 +1,8 @@
 {
     "jupyter.notebookFileRoot": "${workspaceFolder}",
     "editor.formatOnSave": true,
+    "ruff.importStrategy": "fromEnvironment",
+    "mypy-type-checker.importStrategy": "fromEnvironment",
     "python.terminal.activateEnvInCurrentTerminal": true,
     "debug.onTaskErrors": "showErrors",
     "files.exclude": {
