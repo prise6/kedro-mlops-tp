@@ -18,6 +18,8 @@ dependencies = [
     "seaborn~=0.12.1",
     "ydata-profiling>=4.15.1",
     "kedro-pandera>=0.2.3",
+    "kedro-mlflow>=0.14.4",
+    "psutil>=7.0.0",
 ]
 
 [project.scripts]
