@@ -3,7 +3,7 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
-requires-python = ">=3.9"
+requires-python = ">=3.10"
 name = "kedro_mlops_tp"
 readme = "README.md"
 dynamic = ["version"]
@@ -16,8 +16,8 @@ dependencies = [
     "kedro-viz>=6.7.0",
     "scikit-learn~=1.5.1",
     "seaborn~=0.12.1",
-    "ydata-profiling>=4.16.1",
-    "great-expectations>=1.4.5",
+    "ydata-profiling>=4.15.1",
+    "kedro-pandera>=0.2.3",
 ]
 
 [project.scripts]

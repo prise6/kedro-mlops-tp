@@ -68,6 +68,9 @@ preprocessed_shuttles:
 model_input_table:
   type: pandas.ParquetDataset
   filepath: data/03_primary/model_input_table.parquet
+  metadata:
+    pandera:
+      schema: ${pa.python:kedro_mlops_tp.schemas.ModelInputTableSchema}
 
 ydata_profile:
   type: text.TextDataset
@@ -77,6 +80,13 @@ regressor:
   type: pickle.PickleDataset
   filepath: data/06_models/regressor.pickle
   versioned: true
+
+new_model_input_table:
+  type: MemoryDataset
+  metadata:
+    pandera:
+      schema: ${pa.python:kedro_mlops_tp.schemas.ModelInputTableSchema}
+
 
 new_predictions:
   type: pandas.CSVDataset
