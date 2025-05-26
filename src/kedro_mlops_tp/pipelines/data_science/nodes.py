@@ -1,4 +1,5 @@
 import logging
+from typing import Any
 
 import mlflow
 import pandas as pd
@@ -37,12 +38,13 @@ def train_model(X_train: pd.DataFrame, y_train: pd.Series) -> LinearRegression:
     mlflow.sklearn.autolog(log_input_examples=True, log_model_signatures=True)
     regressor = LinearRegression()
     regressor.fit(X_train, y_train)
+    mlflow.sklearn.autolog(disable=True)
     return regressor
 
 
 def evaluate_model(
     regressor: LinearRegression, X_test: pd.DataFrame, y_test: pd.Series
-) -> dict[str, float]:
+) -> dict[str, Any]:
     """Calculates and logs the coefficient of determination.
 
     Args:
@@ -56,4 +58,27 @@ def evaluate_model(
     me = max_error(y_test, y_pred)
     logger = logging.getLogger(__name__)
     logger.info("Model has a coefficient R^2 of %.3f on test data.", score)
-    return {"r2_score": score, "mae": mae, "max_error": me}
+
+    if not (active_run := mlflow.active_run()):
+        return {"r2_score": score, "mae": mae, "max_error": me}
+
+    run_id = active_run.info.run_id
+
+    eval_data = X_test
+    eval_data["price"] = y_test
+
+    eval_dataset = mlflow.data.from_pandas(  # type: ignore
+        eval_data,
+        name="test_dataset",
+        targets="price",
+    )
+
+    mlflow.evaluate(
+        f"runs:/{run_id}/model", eval_dataset, model_type="regressor", env_manager="uv"
+    )
+
+    return {
+        "r2_score": {"value": score, "step": 1},
+        "mae": {"value": mae, "step": 1},
+        "max_error": {"value": me, "step": 1},
+    }

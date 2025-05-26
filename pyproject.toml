@@ -20,6 +20,7 @@ dependencies = [
     "kedro-pandera>=0.2.3",
     "kedro-mlflow>=0.14.4",
     "psutil>=7.0.0",
+    "shap>=0.47.2",
 ]
 
 [project.scripts]

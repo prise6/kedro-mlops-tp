@@ -91,6 +91,9 @@ new_model_input_table:
     pandera:
       schema: ${pa.python:kedro_mlops_tp.schemas.ModelInputTableSchema}
 
+evaluation_metrics:
+  type: kedro_mlflow.io.metrics.MlflowMetricsHistoryDataset
+
 selected_regressor:
   type: kedro_mlflow.io.models.MlflowModelRegistryDataset
   model_name: price_regressor

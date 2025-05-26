@@ -2,8 +2,9 @@ import pandas as pd
 from ydata_profiling import ProfileReport
 
 
-def _is_true(x: pd.Series) -> pd.Series:
-    return x == "t"
+def _is_true(x: pd.Series) -> pd.Series[float]:
+    x_new = x == "t"
+    return x_new.astype(float)
 
 
 def _parse_percentage(x: pd.Series) -> pd.Series:
