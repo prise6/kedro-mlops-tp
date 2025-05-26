@@ -76,10 +76,14 @@ ydata_profile:
   type: text.TextDataset
   filepath: data/08_reporting/ydata_report.html
 
+# regressor:
+#   type: pickle.PickleDataset
+#   filepath: data/06_models/regressor.pickle
+#   versioned: true
+
 regressor:
-  type: pickle.PickleDataset
-  filepath: data/06_models/regressor.pickle
-  versioned: true
+  type: kedro_mlflow.io.models.MlflowModelTrackingDataset
+  flavor: mlflow.sklearn
 
 new_model_input_table:
   type: MemoryDataset
@@ -87,11 +91,16 @@ new_model_input_table:
     pandera:
       schema: ${pa.python:kedro_mlops_tp.schemas.ModelInputTableSchema}
 
+selected_regressor:
+  type: kedro_mlflow.io.models.MlflowModelRegistryDataset
+  model_name: price_regressor
+  alias: challenger
 
 new_predictions:
-  type: pandas.CSVDataset
-  filepath: data/07_model_output/new_predictions.csv
-  versioned: true
+  type: kedro_mlflow.io.artifacts.MlflowArtifactDataset
+  dataset:
+    type: pandas.CSVDataset
+    filepath: data/07_model_output/new_predictions.csv
 
 shuttle_passenger_capacity_plot_exp:
   type: plotly.PlotlyDataset

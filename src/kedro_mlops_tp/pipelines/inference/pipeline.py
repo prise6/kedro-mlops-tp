@@ -26,7 +26,7 @@ def create_pipeline(**kwargs) -> Pipeline:
             ),
             node(
                 func=predict,
-                inputs=["regressor", "inference_features"],
+                inputs=["selected_regressor", "inference_features"],
                 outputs="new_predictions",
                 name="predict_node",
             ),
