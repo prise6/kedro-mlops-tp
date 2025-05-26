@@ -19,7 +19,7 @@
     },
     "python.analysis.autoImportCompletions": false,
     "python.envFile": "${workspaceFolder}/.env",
-    "python.analysis.fixAll": ["source.unusedImports"],  
+    "python.analysis.fixAll": ["source.unusedImports"],
     "editor.defaultFormatter": "charliermarsh.ruff",
     "editor.codeActionsOnSave": {
         "source.unusedImports": "never",

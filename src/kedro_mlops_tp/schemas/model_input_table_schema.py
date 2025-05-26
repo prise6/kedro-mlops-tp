@@ -1,3 +1,5 @@
+from typing import cast
+
 import pandas as pd
 import pandera.pandas as pa
 from pandera.typing import Series
@@ -11,4 +13,7 @@ class ModelInputTableSchema(pa.DataFrameModel):
 
     @pa.dataframe_check
     def score_correlation(cls, df: pd.DataFrame) -> Series[bool]:
-        return df["review_scores_rating"].corr(df["review_scores_comfort"]) >= 0.5
+        return cast(
+            Series[bool],
+            df["review_scores_rating"].corr(df["review_scores_comfort"]) >= 0.5,
+        )

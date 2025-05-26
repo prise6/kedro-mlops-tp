@@ -1,6 +1,4 @@
 # %%
-import time
-
 import matplotlib.pyplot as plt
 import mlflow
 from sklearn.compose import ColumnTransformer
@@ -47,7 +45,7 @@ with mlflow.start_run(
     # mlflow.log_artifact(local_path=)
 
     # dataset
-    dataset = mlflow.data.from_pandas(
+    dataset = mlflow.data.from_pandas(  # type: ignore
         input_table_df,
         source=MODEL_INPUT_FILEPATH,
         name="model_input_table",

@@ -1,7 +1,7 @@
 # %%
 import pandas as pd
 import pandera.pandas as pa
-from pandera.typing.pandas import DataFrame
+from pandera.typing import DataFrame
 
 from kedro_mlops_tp.schemas import ModelInputTableSchema
 
@@ -9,7 +9,7 @@ from kedro_mlops_tp.schemas import ModelInputTableSchema
 # %%
 @pa.check_types
 def read_model_input_table(filepath: str) -> DataFrame[ModelInputTableSchema]:
-    return pd.read_parquet(filepath)
+    return pd.read_parquet(filepath).pipe(DataFrame[ModelInputTableSchema])
 
 
 # %%
