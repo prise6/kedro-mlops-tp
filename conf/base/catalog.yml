@@ -40,7 +40,7 @@
 # https://docs.kedro.org/en/stable/data/data_catalog.html
 
 companies:
-  type: pandas.CSVDataset
+  type: pandas.
   filepath: data/01_raw/companies.csv
 
 reviews:
