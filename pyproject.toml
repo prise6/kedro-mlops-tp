@@ -25,6 +25,7 @@ dependencies = [
     "lime>=0.2.0.1",
     "dvc>=3.59.2",
     "evidently>=0.7.6",
+    "kedro-docker>=0.6.2",
 ]
 
 [project.scripts]
