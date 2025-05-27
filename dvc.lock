@@ -27,8 +27,8 @@ stages:
       isexec: true
     - path: src/kedro_mlops_tp/pipelines/data_science/nodes.py
       hash: md5
-      md5: 7d8982325557ea2048f4d37c6026da71
-      size: 2545
+      md5: f3bc762bc7b58a76b24937c392de18b7
+      size: 2576
       isexec: true
     - path: src/kedro_mlops_tp/pipelines/data_science/pipeline.py
       hash: md5
@@ -68,5 +68,5 @@ stages:
       size: 48647
     - path: data/08_reporting/ydata_report.html
       hash: md5
-      md5: 19d2b91602f2f29126875e1417534924
-      size: 20694778
+      md5: b991f37e08747b20449e9a03bc22b91a
+      size: 20694467
