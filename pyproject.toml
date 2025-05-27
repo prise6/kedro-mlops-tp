@@ -23,6 +23,7 @@ dependencies = [
     "shap>=0.47.2",
     "interpret>=0.6.10",
     "lime>=0.2.0.1",
+    "dvc>=3.59.2",
 ]
 
 [project.scripts]
