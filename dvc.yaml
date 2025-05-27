@@ -1,0 +1,36 @@
+stages:
+  data_processing:
+    cmd: kedro run --pipeline data_processing
+    deps:
+      - data/01_raw/companies.csv
+      - data/01_raw/reviews.csv
+      - data/01_raw/shuttles.xlsx
+      - src/kedro_mlops_demo/pipelines/data_processing/nodes.py
+      - src/kedro_mlops_demo/pipelines/data_processing/pipeline.py
+    outs:
+      - data/02_intermediate/preprocessed_companies.parquet
+      - data/02_intermediate/preprocessed_shuttles.parquet
+      - data/03_primary/model_input_table.parquet
+      - data/08_reporting/ydata_report.html
+
+  data_science:
+    cmd: kedro run --pipeline data_science
+    deps:
+      - data/03_primary/model_input_table.parquet
+      - src/kedro_mlops_demo/pipelines/data_science/nodes.py
+      - src/kedro_mlops_demo/pipelines/data_science/pipeline.py
+    params:
+      - conf/base/parameters_data_science.yml:
+          - model_options
+    outs:
+      # - data/06_models/regressor.pickle
+      - data/04_feature/x_train.csv
+      - data/04_feature/y_train.csv
+
+  reporting:
+    cmd: kedro run --pipeline reporting
+    deps:
+      - data/02_intermediate/preprocessed_shuttles.parquet
+      - data/01_raw/companies.csv
+      - src/kedro_mlops_demo/pipelines/reporting/nodes.py
+      - src/kedro_mlops_demo/pipelines/reporting/pipeline.py

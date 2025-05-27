@@ -4,11 +4,12 @@
 
 ## Etapes
 
-1. Initialisation du projet - découverte des pipelines
-2. Profiling des données (EDA)
-3. Validation des données avec pandera (data validation)
-4. Ajout de mlflow (experiment tracking)
-5. Evaluation du modèles avec mlflow.evaluate (XAI)
+1. Initialisation du projet - découverte des pipelines ☑️
+2. Profiling des données (EDA) ☑️
+3. Validation des données avec pandera (data validation) ☑️
+4. Ajout de mlflow (experiment tracking) ☑️
+5. Evaluation du modèles avec mlflow.evaluate (Model validation) ☑️
+5. Interprétabilité du modèle et explicabilité avec InterpretML (XAI) ☑️
 5. Ajout de dvc (data versioning)
 7. Reporting avec evidently (drift)
 8. Model serving
