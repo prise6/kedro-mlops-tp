@@ -39,19 +39,21 @@ with mlflow.start_run(
     # figure artifacts: Artifact store
     fig, ax = plt.subplots()
     ax.hist(input_table_df["price"])
-    mlflow.log_figure(fig, artifact_file="price_histogram.png")
+    # A DECOMMENTER
+    # mlflow.log_figure(fig, artifact_file="price_histogram.png")
 
     # raw artifact
     # mlflow.log_artifact(local_path=)
 
     # dataset
-    dataset = mlflow.data.from_pandas(  # type: ignore
-        input_table_df,
-        source=MODEL_INPUT_FILEPATH,
-        name="model_input_table",
-        targets="price",
-    )
-    mlflow.log_input(dataset=dataset)
+    # A DECOMMENTER
+    # dataset = mlflow.data.from_pandas(  # type: ignore
+    #     input_table_df,
+    #     source=MODEL_INPUT_FILEPATH,
+    #     name="model_input_table",
+    #     targets="price",
+    # )
+    # mlflow.log_input(dataset=dataset)
 
     # # test system metrics
     # time.sleep(15)
@@ -62,9 +64,8 @@ with mlflow.start_run(
 
     # model example
     # autolog actif
-    mlflow.sklearn.autolog(
-        log_input_examples=True, log_model_signatures=True, max_tuning_runs=1
-    )
+    # A DECOMMENTER
+    # mlflow.sklearn.autolog()
 
     X = input_table_df.drop(columns=["price", "id", "shuttle_location"], inplace=False)
     y = input_table_df["price"]
@@ -101,9 +102,12 @@ with mlflow.start_run(
     # non nécessaire si autolog actif
     # mlflow.sklearn.log_model(pipeline, artifact_path="pipeline")
     # Extract the OOB score from the RandomForestRegressor
-    oob_score = pipeline.named_steps["regressor"].oob_score_
+
+    # A DECOMMENTER
+    # oob_score = pipeline.named_steps["regressor"].oob_score_
 
     # Log the OOB score as a metric
-    mlflow.log_metric(key="oob_score", value=oob_score)
+    # A DECOMMENTER
+    # mlflow.log_metric(key="oob_score", value=oob_score)
 
 # %%
