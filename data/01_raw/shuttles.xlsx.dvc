@@ -1,0 +1,5 @@
+outs:
+- md5: d1d45b1a807a8e93a79d26b7f4b8ebb9
+  size: 936864
+  hash: md5
+  path: shuttles.xlsx

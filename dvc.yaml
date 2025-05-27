@@ -3,7 +3,7 @@ stages:
     cmd: kedro run --pipeline training
     deps:
       - data/01_raw/companies.csv
-      - data/01_raw/reviews.csv
+      - data/01_raw/reviews_dev.csv
       - data/01_raw/shuttles.xlsx
       - src/kedro_mlops_tp/pipelines/data_processing/nodes.py
       - src/kedro_mlops_tp/pipelines/data_processing/pipeline.py
