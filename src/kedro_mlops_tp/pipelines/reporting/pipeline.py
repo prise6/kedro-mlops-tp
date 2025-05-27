@@ -4,6 +4,7 @@ from .nodes import (
     compare_passenger_capacity_exp,
     compare_passenger_capacity_go,
     create_confusion_matrix,
+    create_evidently_report,
 )
 
 
@@ -25,6 +26,11 @@ def create_pipeline(**kwargs) -> Pipeline:
                 func=create_confusion_matrix,
                 inputs="companies",
                 outputs="dummy_confusion_matrix",
+            ),
+            node(
+                func=create_evidently_report,
+                inputs=["model_input_table", "new_model_input_table"],
+                outputs="evidently_report_html",
             ),
         ]
     )

@@ -3,6 +3,8 @@ import pandas as pd
 import plotly.express as px  # noqa:  F401
 import plotly.graph_objs as go
 import seaborn as sn
+from evidently import Report
+from evidently.presets import DataDriftPreset, DataSummaryPreset
 
 
 # This function uses plotly.express
@@ -43,3 +45,18 @@ def create_confusion_matrix(companies: pd.DataFrame):
     )
     sn.heatmap(confusion_matrix, annot=True)
     return plt
+
+
+def create_evidently_report(reference_data: pd.DataFrame, current_data: pd.DataFrame):
+    """
+    Crée un rapport Evidently pour analyser la dérive des données
+    """
+    # Créer un rapport de dérive de données
+    report = Report(
+        metrics=[DataDriftPreset(), DataSummaryPreset()], include_tests=True
+    )
+
+    # Générer le rapport
+    my_report = report.run(reference_data=reference_data, current_data=current_data)
+
+    return my_report.get_html_str(as_iframe=False)

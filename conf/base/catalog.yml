@@ -136,3 +136,9 @@ dummy_confusion_matrix:
   type: matplotlib.MatplotlibDataset
   filepath: data/08_reporting/dummy_confusion_matrix.png
   versioned: true
+
+evidently_report_html:
+  type: kedro_mlflow.io.artifacts.MlflowArtifactDataset
+  dataset:
+    type: text.TextDataset
+    filepath: data/08_reporting/evidently_report.html
