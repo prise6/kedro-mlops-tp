@@ -6,7 +6,7 @@
 
 * Installer [`uv`](https://github.com/astral-sh/uv)
 * Installer [`kedro`](https://docs.kedro.org/en/stable/index.html) via `uvx kedro`
-* A chaque situation relancer `uv sync`
+* A chaque situation relancer `uv sync -p python3.12`
 
 
 ## Objectifs
@@ -46,7 +46,10 @@ Ci dessous un exemple pour se mettre dans la situation 1.
 git clone https://github.com/prise6/kedro-mlops-tp
 cd kedro-mlops-tp
 git checkout situation/1
-uv sync
+uv sync -p python3.12
+# /!\ si nécessaire copier les fichiers companies.csv, reviews.csv et shuttles.xlsx depuis le tuto initial
+# cp ... data/01_raw/companies.csv
+# cp ... data/01_raw/shuttles.xlsx
 ```
 
 ## Situation 1: un projet structuré
