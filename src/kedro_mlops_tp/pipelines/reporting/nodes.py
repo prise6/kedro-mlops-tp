@@ -52,9 +52,7 @@ def create_evidently_report(reference_data: pd.DataFrame, current_data: pd.DataF
     Crée un rapport Evidently pour analyser la dérive des données
     """
     # Créer un rapport de dérive de données
-    report = Report(
-        metrics=[DataDriftPreset(), DataSummaryPreset()], include_tests=True
-    )
+    report = Report(metrics=[DataDriftPreset(), DataSummaryPreset()])
 
     # Générer le rapport
     my_report = report.run(reference_data=reference_data, current_data=current_data)
