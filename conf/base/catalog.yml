@@ -70,7 +70,7 @@ model_input_table:
   filepath: data/03_primary/model_input_table.parquet
   metadata:
     pandera:
-      schema: ${pa.python:kedro_mlops_tp.schemas.ModelInputTableSchema}
+      schema: 
 
 ydata_profile:
   type: text.TextDataset
