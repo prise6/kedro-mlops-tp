@@ -159,7 +159,3 @@ venv.bak/
 
 # mlflow local runs
 mlruns/*
-
-# Dvc config
-!*.dvc
-
