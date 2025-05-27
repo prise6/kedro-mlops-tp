@@ -87,9 +87,10 @@ X_train:
 #   filepath: data/06_models/regressor.pickle
 #   versioned: true
 
-regressor:
-  type: kedro_mlflow.io.models.MlflowModelTrackingDataset
-  flavor: mlflow.sklearn
+# comment because autologging is better (signatures + examples)
+# regressor:
+#   type: kedro_mlflow.io.models.MlflowModelTrackingDataset
+#   flavor: mlflow.sklearn
 
 new_model_input_table:
   type: MemoryDataset

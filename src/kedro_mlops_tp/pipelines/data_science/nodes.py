@@ -35,7 +35,9 @@ def train_model(X_train: pd.DataFrame, y_train: pd.Series) -> LinearRegression:
     Returns:
         Trained model.
     """
-    mlflow.sklearn.autolog(log_input_examples=True, log_model_signatures=True)
+    mlflow.sklearn.autolog(
+        log_input_examples=True, log_model_signatures=True, log_models=True
+    )
     regressor = LinearRegression()
     regressor.fit(X_train, y_train)
     mlflow.sklearn.autolog(disable=True)
