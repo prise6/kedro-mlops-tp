@@ -163,3 +163,5 @@ mlruns/*
 # Dvc config
 !*.dvc
 
+# model serving dockerfile
+mlflow-dockerfile/
