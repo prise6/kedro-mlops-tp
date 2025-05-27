@@ -1,0 +1,72 @@
+schema: '2.0'
+stages:
+  training:
+    cmd: kedro run --pipeline training
+    deps:
+    - path: data/01_raw/companies.csv
+      hash: md5
+      md5: 27232c0437abb21ae79519fec9a24ac8
+      size: 223318
+    - path: data/01_raw/reviews.csv
+      hash: md5
+      md5: 430b6cbc7c2eec7dd0e081a6cb819774
+      size: 588895
+    - path: data/01_raw/shuttles.xlsx
+      hash: md5
+      md5: d1d45b1a807a8e93a79d26b7f4b8ebb9
+      size: 936864
+    - path: src/kedro_mlops_tp/pipelines/data_processing/nodes.py
+      hash: md5
+      md5: 083c98a20536a2b16b5334dcc7b6cb10
+      size: 2289
+      isexec: true
+    - path: src/kedro_mlops_tp/pipelines/data_processing/pipeline.py
+      hash: md5
+      md5: d6f0cc48d9ad7db1cb6c2c2d5d71f2a0
+      size: 1156
+      isexec: true
+    - path: src/kedro_mlops_tp/pipelines/data_science/nodes.py
+      hash: md5
+      md5: 7d8982325557ea2048f4d37c6026da71
+      size: 2545
+      isexec: true
+    - path: src/kedro_mlops_tp/pipelines/data_science/pipeline.py
+      hash: md5
+      md5: 52b5e53f8c1d228ae58cd18860007fc5
+      size: 858
+      isexec: true
+    params:
+      conf/base/parameters_data_science.yml:
+        model_options:
+          test_size: 0.2
+          random_state: 3
+          features:
+          - engines
+          - passenger_capacity
+          - crew
+          - d_check_complete
+          - moon_clearance_complete
+          - iata_approved
+          - company_rating
+          - review_scores_rating
+    outs:
+    - path: data/02_intermediate/preprocessed_companies.parquet
+      hash: md5
+      md5: 94cf648eb66451ca17fbddaeb0eefabb
+      size: 83303
+    - path: data/02_intermediate/preprocessed_shuttles.parquet
+      hash: md5
+      md5: f6240277ff66fe1ab5862cb86cf1da59
+      size: 247387
+    - path: data/03_primary/model_input_table.parquet
+      hash: md5
+      md5: b0fca6948678f5760e4aa7cc2913c7d6
+      size: 211182
+    - path: data/05_model_input/x_train.parquet
+      hash: md5
+      md5: 5f567cf35e890e7373fe3276f9137627
+      size: 48647
+    - path: data/08_reporting/ydata_report.html
+      hash: md5
+      md5: cb2beff3875ee5d369c54e732977b291
+      size: 20694427
