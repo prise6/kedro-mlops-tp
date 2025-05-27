@@ -2,7 +2,7 @@ import pandas as pd
 from ydata_profiling import ProfileReport
 
 
-def _is_true(x: pd.Series) -> pd.Series[float]:
+def _is_true(x: pd.Series) -> pd.Series:
     x_new = x == "t"
     return x_new.astype(float)
 

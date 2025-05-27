@@ -21,6 +21,8 @@ dependencies = [
     "kedro-mlflow>=0.14.4",
     "psutil>=7.0.0",
     "shap>=0.47.2",
+    "interpret>=0.6.10",
+    "lime>=0.2.0.1",
 ]
 
 [project.scripts]

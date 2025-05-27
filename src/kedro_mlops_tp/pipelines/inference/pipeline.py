@@ -2,7 +2,7 @@ from kedro.pipeline import Pipeline, node, pipeline
 
 from kedro_mlops_tp.pipelines.data_processing.nodes import create_model_input_table
 
-from .nodes import predict, select_features
+from .nodes import explain, predict, select_features
 
 
 def create_pipeline(**kwargs) -> Pipeline:
@@ -29,6 +29,12 @@ def create_pipeline(**kwargs) -> Pipeline:
                 inputs=["selected_regressor", "inference_features"],
                 outputs="new_predictions",
                 name="predict_node",
+            ),
+            node(
+                func=explain,
+                inputs=["selected_regressor", "X_train", "new_predictions"],
+                outputs=None,
+                name="explain_node",
             ),
         ]
     )

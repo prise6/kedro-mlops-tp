@@ -74,7 +74,10 @@ def evaluate_model(
     )
 
     mlflow.evaluate(
-        f"runs:/{run_id}/model", eval_dataset, model_type="regressor", env_manager="uv"
+        f"runs:/{run_id}/model",
+        eval_dataset,
+        model_type="regressor",
+        env_manager="local",
     )
 
     return {

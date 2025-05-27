@@ -76,6 +76,12 @@ ydata_profile:
   type: text.TextDataset
   filepath: data/08_reporting/ydata_report.html
 
+
+X_train:
+  type: pandas.ParquetDataset
+  filepath: data/05_model_input/x_train.parquet
+
+
 # regressor:
 #   type: pickle.PickleDataset
 #   filepath: data/06_models/regressor.pickle
@@ -98,6 +104,7 @@ selected_regressor:
   type: kedro_mlflow.io.models.MlflowModelRegistryDataset
   model_name: price_regressor
   alias: challenger
+  # flavor: mlflow.sklearn
 
 new_predictions:
   type: kedro_mlflow.io.artifacts.MlflowArtifactDataset
